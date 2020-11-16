@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New Note</ion-title>
+    <ion-buttons slot="end">
+      <ion-button ion-button (click)="closeModal()"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Note Title</ion-label>
+    <ion-input #taskInput [(ngModel)]="note.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Note Description</ion-label>
+    <ion-textarea rows="20" [(ngModel)]="note.desc"></ion-textarea>
+  </ion-item>
+  
+  
+  <ion-button (click)="validate()" expand="block" class="save_note_btn">Save Note</ion-button>
+  
+  
+</ion-content>

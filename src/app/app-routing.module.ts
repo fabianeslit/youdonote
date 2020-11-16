@@ -7,10 +7,28 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'comment',
+    loadChildren: () => import('./comment/comment.module').then( m => m.CommentPageModule)
+  },
+  {
+    path: 'notemodal/:id',
+    loadChildren: () => import('./notemodal/notemodal.module').then( m => m.NotemodalPageModule)
+  },
+  {
+    path: 'noteupdatemodal/:id',
+    loadChildren: () => import('./noteupdatemodal/noteupdatemodal.module').then( m => m.NoteupdatemodalPageModule)
+  }
 ];
 
 @NgModule({

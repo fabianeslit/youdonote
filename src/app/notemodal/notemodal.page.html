@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"><ion-icon name="arrow-back-outline"></ion-icon></ion-back-button>
+    </ion-buttons>
+    <ion-title>Viewing Note</ion-title>
+    <ion-buttons slot="end">
+      <ion-button ion-button (click)="presentActionSheet()"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content class="ion-padding">
+    <h2>{{todos[id].title}}</h2>
+    <p style="white-space: pre-wrap;">{{todos[id].desc}}</p>
+  </ion-content>
+</ion-content>
