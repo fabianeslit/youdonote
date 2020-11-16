@@ -26,8 +26,8 @@ const routes: Routes = [
     loadChildren: () => import('./noteupdatemodal/noteupdatemodal.module').then( m => m.NoteupdatemodalPageModule)
   },
   {
-    path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   }
 ];
 

@@ -1,1 +1,10 @@
 .card_btn { display: flex; }
+.toolbar { --background: var(--ion-color-primary); }
+.toolbar-title { --color: #FFF; }
+ion-icon .toolbar-input { --icon-color: var (--ion-color-primary); }
+:not(.md) .toolbar-input { --color: #FFF; }
+:not(.md) ion-searchbar{
+    --icon-color: var (--ion-color-primary);
+}
+
+.vertical-center { width: 100%; margin: 0; position: absolute; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); }

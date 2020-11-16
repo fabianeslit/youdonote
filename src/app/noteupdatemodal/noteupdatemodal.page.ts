@@ -8,9 +8,10 @@ import { NavController, AlertController, ToastController } from '@ionic/angular'
   styleUrls: ['./noteupdatemodal.page.scss'],
 })
 export class NoteupdatemodalPage implements OnInit {
-  private id : string;
+  id : string;
   emptyTitle : boolean = false;
   todos : any = [];
+  colorScheme : string = "";
   note = {
     title : '',
     desc : '' 
@@ -24,6 +25,7 @@ export class NoteupdatemodalPage implements OnInit {
     }
     this.note.title = this.todos[this.id].title;
     this.note.desc = this.todos[this.id].desc;
+    this.colorScheme = localStorage.getItem('color');
   }
 
   updateTodo() {

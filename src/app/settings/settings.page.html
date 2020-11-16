@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="{{ colorScheme }}">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"><ion-icon name="arrow-back-outline"></ion-icon></ion-back-button>
+    </ion-buttons>
+    <ion-title >Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!isUpdated" (click)="presentLoading()"><ion-icon name="save-outline"></ion-icon>&nbsp;SAVE </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Color Scheme</ion-label>
+      <ul class="no-bullet">
+        <li><ion-button color="primary" (click)="buttonColor('primary')"></ion-button></li>
+        <li><ion-button color="secondary" (click)="buttonColor('secondary')"></ion-button></li>
+        <li><ion-button color="tertiary" (click)="buttonColor('tertiary')"></ion-button></li>
+      </ul>
+      <ul class="no-bullet">
+        <li><ion-button color="success" (click)="buttonColor('success')"></ion-button></li>
+        <li><ion-button color="warning" (click)="buttonColor('warning')"></ion-button></li>
+        <li><ion-button color="danger" (click)="buttonColor('danger')"></ion-button></li>
+      </ul>
+      <ul class="no-bullet">
+        <li><ion-button color="light" (click)="buttonColor('light')"></ion-button></li>
+        <li><ion-button color="medium" (click)="buttonColor('medium')"></ion-button></li>
+        <li><ion-button color="dark" (click)="buttonColor('dark')"></ion-button></li>
+      </ul>
+    </ion-item>
+  </ion-list>
+</ion-content>

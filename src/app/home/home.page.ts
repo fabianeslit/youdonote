@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
-import { NotemodalPage } from '../notemodal/notemodal.page';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +12,8 @@ export class HomePage implements OnInit  {
   todosBkup : any = [];
   searchTerm : string = "";
   none : boolean = false;
+  empty : boolean = false;
+  colorScheme : string = "";
   note = { 
     title : '',
     desc: ''
@@ -27,11 +28,32 @@ export class HomePage implements OnInit  {
       this.todos = JSON.parse(localStorage.getItem('todos'));
       this.todosBkup = JSON.parse(localStorage.getItem('todos'));
     }
+
+    if(this.todos.length == 0){
+      this.empty = true;
+    }
+    
+    if(localStorage.getItem('color')){
+      this.colorScheme = localStorage.getItem('color');
+    }else{
+      this.colorScheme = "primary";
+      localStorage.setItem('color', "primary");
+    }
   }
 
   ionViewWillEnter(){
     if(JSON.parse(localStorage.getItem('todos')) != null ){
       this.todos = JSON.parse(localStorage.getItem('todos'));
+      this.todosBkup = JSON.parse(localStorage.getItem('todos'));
+    }
+    if(localStorage.getItem('color')){
+      this.colorScheme = localStorage.getItem('color');
+    }else{
+      this.colorScheme = "primary";
+      localStorage.setItem('color', "primary");
+    }
+    if(this.todos.length == 0){
+      this.empty = true;
     }
   }
 
@@ -39,7 +61,7 @@ export class HomePage implements OnInit  {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Loading...',
-      duration: 100
+      duration: 1500
     });
     await loading.present();    
   }
@@ -67,6 +89,7 @@ export class HomePage implements OnInit  {
       desc: desc
     }
     this.todos.push(newTodo);
+    this.empty = false;
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
@@ -80,7 +103,7 @@ export class HomePage implements OnInit  {
       });
     }
 
-    if(this.todos.length == 0){
+    if(this.todos.length == 0 && this.empty == false){
       this.none = true;
     }
   }

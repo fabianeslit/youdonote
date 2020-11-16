@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <!-- <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons> -->
-    <ion-title>
+  <ion-toolbar color="{{ colorScheme }}">
+    <ion-title> 
       YouDoNote
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings/']"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar placeholder="Search note" [(ngModel)]="searchTerm" (ionChange)="onSearchTerm($event)"></ion-searchbar>
+  <ion-toolbar color="{{ colorScheme }}">
+    <ion-searchbar [disabled]="empty" placeholder="Search note" (ionChange)="onSearchTerm($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -23,11 +23,16 @@
   </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="showModal()">
+    <ion-fab-button (click)="showModal()" color="{{ colorScheme }}">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
+  <div class="ion-padding vertical-center" *ngIf="empty == true">
+    <p class="ion-text-center" ><ion-icon color="medium" name="create-outline" style="width: 60px; height: 60px;"></ion-icon></p>
+    <p class="ion-text-center" justify-content-center align-items-center style="height: 100%; flex-direction: column">
+        No notes added yet. Add notes by clicking the button at the bottom right now!
+    </p>
+  </div>
   <div class="ion-padding" *ngIf="none == true">
     <p class="ion-text-center">No results</p>
   </div>

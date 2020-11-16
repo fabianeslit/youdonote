@@ -21,6 +21,7 @@ export class AppComponent {
     this.sideMenu();
     this.initializeApp();
   }
+  
 
   initializeApp() {
     this.platform.ready().then(() => {

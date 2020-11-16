@@ -10,9 +10,12 @@ import { AlertController } from '@ionic/angular';
 })
 export class ModalPage implements OnInit {
   @ViewChild('taskInput') input;
+  colorScheme : string = "";
+
   constructor(public modalCtrl: ModalController,public toastController: ToastController, public alertController : AlertController) { }
 
   ngOnInit() {
+    this.colorScheme = localStorage.getItem('color');
   }
 
   async presentAlert() {

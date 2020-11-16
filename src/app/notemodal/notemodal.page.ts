@@ -12,7 +12,8 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class NotemodalPage implements OnInit {
   todos : any = [];
-  private id : string;
+  id : string;
+  colorScheme : string = "";
   constructor(public actionSheetController: ActionSheetController, private route: ActivatedRoute, public modalController : ModalController, public alertController: AlertController, public toastController: ToastController, private navCtrl: NavController) { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class NotemodalPage implements OnInit {
     if(JSON.parse(localStorage.getItem('todos')) != null ){
       this.todos = JSON.parse(localStorage.getItem('todos'));
     }
+    this.colorScheme = localStorage.getItem('color');
   }
 
   async presentActionSheet() {
