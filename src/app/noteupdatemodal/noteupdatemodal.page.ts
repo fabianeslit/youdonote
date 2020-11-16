@@ -9,6 +9,7 @@ import { NavController, AlertController, ToastController } from '@ionic/angular'
 })
 export class NoteupdatemodalPage implements OnInit {
   private id : string;
+  emptyTitle : boolean = false;
   todos : any = [];
   note = {
     title : '',
@@ -63,4 +64,11 @@ export class NoteupdatemodalPage implements OnInit {
     toast.present();
   }
 
+  checkinputT(ev: CustomEvent){
+    if(this.note.title.length == 0){
+      this.emptyTitle = true;
+    }else{
+      this.emptyTitle = false;
+    }
+  }
 }

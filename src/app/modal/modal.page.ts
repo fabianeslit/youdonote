@@ -27,7 +27,7 @@ export class ModalPage implements OnInit {
     await alert.present();
   }
 
-
+  emptyTitle : boolean = true;
   note = {
     title : '',
     desc : '' 
@@ -63,5 +63,13 @@ export class ModalPage implements OnInit {
     });
     this.closeModal();
     toast.present();
+  }
+
+  checkinputT(ev: CustomEvent){
+    if(this.note.title.length == 0){
+      this.emptyTitle = true;
+    }else{
+      this.emptyTitle = false;
+    }
   }
 }

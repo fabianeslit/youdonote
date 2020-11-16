@@ -18,16 +18,16 @@ const routes: Routes = [
     loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
   {
-    path: 'comment',
-    loadChildren: () => import('./comment/comment.module').then( m => m.CommentPageModule)
-  },
-  {
     path: 'notemodal/:id',
     loadChildren: () => import('./notemodal/notemodal.module').then( m => m.NotemodalPageModule)
   },
   {
     path: 'noteupdatemodal/:id',
     loadChildren: () => import('./noteupdatemodal/noteupdatemodal.module').then( m => m.NoteupdatemodalPageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   }
 ];
 

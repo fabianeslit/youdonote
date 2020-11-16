@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 import { NotemodalPage } from '../notemodal/notemodal.page';
-import { YoudonoteService } from '../youdonote.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +18,7 @@ export class HomePage implements OnInit  {
     desc: ''
   };
 
-  constructor(public toastController: ToastController, private youdonoteservice: YoudonoteService, public modalController: ModalController, public loadingController : LoadingController) {
+  constructor(public toastController: ToastController, public modalController: ModalController, public loadingController : LoadingController) {
     
   }
 
