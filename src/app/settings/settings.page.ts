@@ -133,6 +133,7 @@ export class SettingsPage implements OnInit {
     if(this.colorScheme != color){
       this.isUpdated = true;
       this.tempColor = color;
+      this.colorScheme = color;
     }else{
       this.isUpdated = false;
     }
