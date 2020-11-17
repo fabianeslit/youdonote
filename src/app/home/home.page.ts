@@ -91,6 +91,7 @@ export class HomePage implements OnInit  {
     this.todos.push(newTodo);
     this.empty = false;
     localStorage.setItem('todos', JSON.stringify(this.todos));
+    this.todosBkup = JSON.parse(localStorage.getItem('todos'));
   }
 
   onSearchTerm(ev: CustomEvent) {
