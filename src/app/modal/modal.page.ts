@@ -11,11 +11,12 @@ import { AlertController } from '@ionic/angular';
 export class ModalPage implements OnInit {
   @ViewChild('taskInput') input;
   colorScheme : string = "";
-
+  fromValidate : boolean = false;
   constructor(public modalCtrl: ModalController,public toastController: ToastController, public alertController : AlertController) { }
 
   ngOnInit() {
     this.colorScheme = localStorage.getItem('color');
+    this.fromValidate = false;
   }
 
   async presentAlert() {
@@ -37,7 +38,7 @@ export class ModalPage implements OnInit {
   };
 
   public closeModal() {
-    if(this.note.title.length != 0 && this.note.desc.length != 0){
+    if(this.note.title.length != 0 && this.note.desc.length != 0 && this.fromValidate == true){
       this.modalCtrl.dismiss({
         'dismissed': true,
         'data' : this.note
@@ -54,6 +55,7 @@ export class ModalPage implements OnInit {
     if(this.note.title.length == 0 || this.note.desc.length == 0){
       this.presentAlert();
     }else{
+      this.fromValidate = true;
       this.presentToast();
     }
   }

@@ -15,19 +15,19 @@
     <ion-item>
       <ion-label>Color Scheme</ion-label>
       <ul class="no-bullet">
-        <li><ion-button color="primary" (click)="buttonColor('primary')"></ion-button></li>
-        <li><ion-button color="secondary" (click)="buttonColor('secondary')"></ion-button></li>
-        <li><ion-button color="tertiary" (click)="buttonColor('tertiary')"></ion-button></li>
+        <li><ion-button [disabled]="isPrimary" color="primary" (click)="buttonColor('primary')"><p *ngIf="isPrimary">X</p></ion-button></li>
+        <li><ion-button [disabled]="isSecondary" color="secondary" (click)="buttonColor('secondary')"><p *ngIf="isSecondary">X</p></ion-button></li>
+        <li><ion-button [disabled]="isTertiary" color="tertiary" (click)="buttonColor('tertiary')"><p *ngIf="isTertiary">X</p></ion-button></li>
       </ul>
       <ul class="no-bullet">
-        <li><ion-button color="success" (click)="buttonColor('success')"></ion-button></li>
-        <li><ion-button color="warning" (click)="buttonColor('warning')"></ion-button></li>
-        <li><ion-button color="danger" (click)="buttonColor('danger')"></ion-button></li>
+        <li><ion-button [disabled]="isSuccess" color="success" (click)="buttonColor('success')"><p *ngIf="isSuccess">X</p></ion-button></li>
+        <li><ion-button [disabled]="isWarning" color="warning" (click)="buttonColor('warning')"><p *ngIf="isWarning">X</p></ion-button></li>
+        <li><ion-button [disabled]="isDanger" color="danger" (click)="buttonColor('danger')"><p *ngIf="isDanger">X</p></ion-button></li>
       </ul>
       <ul class="no-bullet">
-        <li><ion-button color="light" (click)="buttonColor('light')"></ion-button></li>
-        <li><ion-button color="medium" (click)="buttonColor('medium')"></ion-button></li>
-        <li><ion-button color="dark" (click)="buttonColor('dark')"></ion-button></li>
+        <li><ion-button [disabled]="isLight" color="light" (click)="buttonColor('light')"><p *ngIf="isLight">X</p></ion-button></li>
+        <li><ion-button [disabled]="isMedium" color="medium" (click)="buttonColor('medium')"><p *ngIf="isMedium">X</p></ion-button></li>
+        <li><ion-button [disabled]="isDark" color="dark" (click)="buttonColor('dark')"><p *ngIf="isDark">X</p></ion-button></li>
       </ul>
     </ion-item>
   </ion-list>
